@@ -1,0 +1,26 @@
+.flower-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 2px solid #f67280;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: left;
+  min-height: 200px; 
+  font-family: Geoform, sans-serif;
+  font-size: 16px;
+}
+
+.flower-card button {
+  margin-top: auto;
+  background-color: #f67280;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit;   
+  font-size: inherit;    
+  font-weight: normal;
+}

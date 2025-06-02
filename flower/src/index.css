@@ -1,0 +1,14 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Geoform', sans-serif;
+}
+
+@font-face {
+  font-family: 'Geoform';
+  src: url('./assets/fonts/Geoform.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

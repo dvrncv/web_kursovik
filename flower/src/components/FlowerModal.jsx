@@ -29,42 +29,79 @@ const FlowerModal = ({ flower, onClose, refresh }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        fontFamily: "Geoform, sans-serif",
+        zIndex: 1000,
       }}
     >
       <div
         style={{
           backgroundColor: "#fff",
           padding: "20px",
-          borderRadius: "8px",
-          width: "300px",
-          textAlign: "center",
+          borderRadius: "12px",
+          width: "320px",
+          position: "relative",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <h2>{flower.name}</h2>
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            background: "none",
+            border: "none",
+            fontSize: "20px",
+            color: "#f67280",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+          aria-label="Закрыть"
+        >
+          ×
+        </button>
+
+        <h3 style={{ marginBottom: "10px"}}>
+          {flower.name}
+        </h3>
         <p>Цена: {flower.price}</p>
         <p>Описание: {flower.description}</p>
         <p>Количество: {flower.quantity}</p>
-        <p>Категория: {flower.category}</p>
+        <p> Категория: {flower.category}</p>
 
-        <button
-          onClick={archiveFlower}
-          style={{
-            backgroundColor: "#f67280",
-            color: "#fff",
-            marginRight: "10px",
-          }}
-        >
-          Архивировать
-        </button>
-        <button
-          onClick={deleteFlower}
-          style={{ backgroundColor: "#ccc", marginRight: "10px" }}
-        >
-          Удалить
-        </button>
-        <button onClick={onClose} style={{ backgroundColor: "#ddd" }}>
-          Закрыть
-        </button>
+        <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
+          <button
+            onClick={archiveFlower}
+            style={{
+              flex: 1,
+              backgroundColor: "#f67280",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              padding: "8px",
+              cursor: "pointer",
+              fontFamily: "inherit",
+            }}
+          >
+            Архивировать
+          </button>
+
+          <button
+            onClick={deleteFlower}
+            style={{
+              flex: 1,
+              backgroundColor: "#ccc",
+              color: "#000",
+              border: "none",
+              borderRadius: "6px",
+              padding: "8px",
+              cursor: "pointer",
+              fontFamily: "inherit",
+            }}
+          >
+            Удалить
+          </button>
+        </div>
       </div>
     </div>
   );

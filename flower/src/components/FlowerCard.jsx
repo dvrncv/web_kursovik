@@ -7,9 +7,9 @@ const FlowerCard = ({ flower, onDetailsClick }) => {
       <div>
         <strong>{flower.name}</strong>
         <br />
-        Цена: {flower.price}
+        {flower.description}
         <br />
-        Описание: {flower.description}
+        Цена: {flower.price}
         <br />
         Количество: {flower.quantity}
         <br />

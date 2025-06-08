@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import FlowerCard from "../components/FlowerCard";
 import FlowerModal from "../components/FlowerModal";
+import "../css/Home.css";
 
 const HomePage = () => {
   const [flowers, setFlowers] = useState([]);
@@ -65,120 +66,84 @@ const HomePage = () => {
       <Header />
       <main
         style={{
-          padding: "10px",
+          display: "flex",
+          padding: "20px",
           backgroundColor: "#fff",
           minHeight: "100vh",
+          gap: "20px",
         }}
       >
-        <h1
-          style={{
-            color: "#f67280",
-            textAlign: "center",
-          }}
-        >
-          Добро пожаловать в Цветочную лавку!
-        </h1>
-
-        <section>
-          <h2 style={{ color: "#f67280" }}>Активные цветы</h2>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ color: "#f67280", marginBottom: "20px" }}>
+            Активные цветы
+          </h2>
           <div
             style={{
-              display: "flex",
-              alignItems: "flex-start",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
               gap: "20px",
-              marginTop: "10px",
             }}
           >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-                gap: "20px",
-                flex: 1,
-              }}
-            >
-              {flowers.map((flower) => (
-                <FlowerCard
-                  key={flower.id}
-                  flower={flower}
-                  onDetailsClick={() => handleDetailsClick(flower)}
-                />
-              ))}
-            </div>
-
-            <form
-              onSubmit={handleCreateFlower}
-              style={{
-                backgroundColor: "#ffe2e2",
-                padding: "20px",
-                borderRadius: "10px",
-                width: "300px",
-              }}
-            >
-              <h3 style={{ color: "#f67280", marginBottom: "10px" }}>
-                Добавить цветок
-              </h3>
-
-              <input
-                type="text"
-                placeholder="Название"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
+            {flowers.map((flower) => (
+              <FlowerCard
+                key={flower.id}
+                flower={flower}
+                onDetailsClick={() => handleDetailsClick(flower)}
               />
-              <input
-                type="number"
-                placeholder="Цена"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                required
-              />
-              <input
-                type="text"
-                placeholder="Описание"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-              <input
-                type="number"
-                placeholder="Количество"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Категория"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
-
-              <button
-                type="submit"
-                style={{
-                  marginTop: "10px",
-                  backgroundColor: "#f67280",
-                  color: "#fff",
-                  padding: "8px",
-                  border: "none",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                  width: "100%",
-                }}
-              >
-                Создать
-              </button>
-            </form>
+            ))}
           </div>
-        </section>
+        </div>
 
-        <section style={{ marginTop: "40px" }}>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ color: "#f67280" }}>Добавить цветок</h2>
+          <form onSubmit={handleCreateFlower} className="form-container">
+            <input
+              className="form-input"
+              placeholder="Название"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <input
+              className="form-input"
+              placeholder="Цена"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+            <input
+              className="form-input"
+              placeholder="Описание"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          
+            <input
+              className="form-input"
+              placeholder="Количество"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              required
+            />
+            <input
+              className="form-input"
+              placeholder="Категория"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            />
+            <button type="submit" className="create-button">
+              Создать
+            </button>
+          </form>
+
           <h2 style={{ color: "#f67280" }}>Архивные цветы</h2>
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
               gap: "20px",
-              marginTop: "10px",
               opacity: 0.6,
             }}
           >
@@ -190,7 +155,7 @@ const HomePage = () => {
               />
             ))}
           </div>
-        </section>
+        </div>
 
         {isModalOpen && selectedFlower && (
           <FlowerModal

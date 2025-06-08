@@ -1,26 +1,41 @@
 .flower-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background: #fff;
   border: 1px solid #f67280;
   border-radius: 8px;
-  padding: 8px;
+  padding: 12px;
   text-align: left;
-  min-height: 200px; 
+  min-height: 260px;
   font-family: Geoform, sans-serif;
   font-size: 16px;
 }
 
-.flower-card button {
-  margin-top: auto;
+.flower-info {
+  flex-grow: 1;
+}
+
+.flower-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.flower-buttons button {
+  width: 100%;
   background-color: #f67280;
   color: #fff;
   border: none;
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  font-family: inherit;   
-  font-size: inherit;    
-  font-weight: normal;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.flower-buttons .delete-btn {
+  background-color: #ccc;
+  color: #000;
 }

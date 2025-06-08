@@ -1,10 +1,12 @@
 import React from "react";
 import "../css/FlowerCard.css";
 
-const FlowerCard = ({ flower, onDetailsClick }) => {
+const FlowerCard = ({ flower, onArchive, onDelete }) => {
+  const isActive = flower.active;
+
   return (
     <div className="flower-card">
-      <div>
+      <div className="flower-info">
         <strong>{flower.name}</strong>
         <br />
         {flower.description}
@@ -14,14 +16,16 @@ const FlowerCard = ({ flower, onDetailsClick }) => {
         Количество: {flower.quantity}
         <br />
         Категория: {flower.category}
-        <br />
       </div>
-      <button
-        onClick={onDetailsClick}
-        onMouseDown={(e) => e.currentTarget.blur()}
-      >
-        Подробнее
-      </button>
+
+      <div className="flower-buttons">
+        <button onClick={onArchive}>
+          {isActive ? "Архивировать" : "Разархивировать"}
+        </button>
+        <button onClick={onDelete} className="delete-btn">
+          Удалить
+        </button>
+      </div>
     </div>
   );
 };
